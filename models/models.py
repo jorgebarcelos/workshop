@@ -19,7 +19,7 @@ class Stock:
 
 
 class Sale:
-    def __init__(self, sold_item: Products, seller, buyer, quantity_sold, date = datetime.now()):
+    def __init__(self, sold_item: Products, seller, buyer, quantity_sold, date = datetime.now().strftime("%d/%m/%Y")):
         self.sold_item = sold_item
         self.seller = seller
         self.buyer = buyer
