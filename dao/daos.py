@@ -1,4 +1,4 @@
-from models.models import *
+from model.models import *
 
 
 class DaoCategory:
