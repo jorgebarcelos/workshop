@@ -15,3 +15,23 @@ class ControllerCategory:
             print("Categoria criaada com sucesso!")
         else:
             print("A categoria em questão já existe")
+
+    
+    def delete_category(self, remove_category):
+        dao_category = DaoCategory.read()
+        category = list(filter(lambda x: x.category == remove_category, dao_category))
+
+        if len(category) <= 0:
+            print("A categoria não existe")
+        else:
+            for i in range(len(dao_category)):
+                if dao_category[i] == remove_category:
+                    del dao_category[i]
+                    break
+
+            print("Categoria removida com sucesso!")
+
+            with open('category.txt', 'w') as file:
+                for i in dao_category:
+                    file.writelines(i.category)
+                    file.writelines('\n')
