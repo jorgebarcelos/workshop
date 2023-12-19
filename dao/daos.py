@@ -1,3 +1,4 @@
+import pretty_errors
 from model.models import *
 
 
@@ -11,9 +12,9 @@ class DaoCategory:
     
     @classmethod
     def read(cls):
-        with open('category.txt') as file:
+        with open('category.txt', 'r') as file:
             cls.category = file.readlines()
-        cls.category = list(lambda x: x.replace('\n', ''), cls.category)
+        cls.category = list(map(lambda x: x.replace('\n', ''), cls.category))
         
         category_list = []
 
